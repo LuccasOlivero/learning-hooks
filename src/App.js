@@ -26,6 +26,10 @@ export default function App() {
   );
 }
 
+function testing() {
+  console.log("this works?");
+}
+
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
 
