@@ -50,8 +50,8 @@ function Tabbed({ content }) {
 function Tab({ num, activeTab, onClick }) {
   return (
     <button
-      className={activeTab === num ? "tab active" : "tab"}
       onClick={() => onClick(num)}
+      className={activeTab === num ? "tab active" : "tab"}
     >
       Tab {num + 1}
     </button>
@@ -70,6 +70,18 @@ function TabContent({ item }) {
     <div className="tab-content">
       <h4>{item.summary}</h4>
       {showDetails && <p>{item.details}</p>}
+
+      <div className="tab-actions">
+        <button onClick={() => setShowDetails((prevValue) => !prevValue)}>
+          {showDetails ? "Hide" : "Show"} details
+        </button>
+
+        <div className="hearts-counter">
+          <span>{likes} ❤️</span>
+          <button onClick={handleInc}>+</button>
+          <button>+++</button>
+        </div>
+      </div>
 
       <div className="tab-undo">
         <button>Undo</button>
